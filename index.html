@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brookes Heil Blackburn</title>
-  <meta name="description" content="Brookes Heil Blackburn — M.S. Applied Mathematics candidate at Cal Poly Pomona. Blending 12 years of semiconductor engineering leadership with quantitative research, numerical methods, and data science.">`
+  <title>Brookes Blackburn</title>
+  <meta name="description" content="Brookes Blackburn — M.S. Applied Mathematics candidate at Cal Poly Pomona.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Variables */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -42,7 +41,6 @@
       overflow-x: hidden;
     }
 
-    /*  Noise Overlay  */
     body::before {
       content: '';
       position: fixed;
@@ -52,7 +50,6 @@
       z-index: 9999;
     }
 
-    /* ── Layout ── */
     .container {
       max-width: 1080px;
       margin: 0 auto;
@@ -62,19 +59,16 @@
     a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
     a:hover { color: var(--white); }
 
-    /* Navigation */
+    /* Nav */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       padding: 1.25rem 2rem;
       backdrop-filter: blur(20px);
       background: rgba(15, 17, 23, 0.8);
       border-bottom: 1px solid var(--border);
     }
-
     nav .nav-inner {
       max-width: 1080px;
       margin: 0 auto;
@@ -82,16 +76,13 @@
       justify-content: space-between;
       align-items: center;
     }
-
     nav .logo {
       font-family: var(--font-mono);
       font-size: 0.85rem;
       color: var(--teal);
       letter-spacing: 0.08em;
     }
-
     nav .nav-links { display: flex; gap: 2rem; }
-
     nav .nav-links a {
       font-size: 0.85rem;
       color: var(--text-dim);
@@ -99,18 +90,14 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-
     nav .nav-links a:hover { color: var(--teal); }
 
-    /* Hero  */
+    /* Hero — tighter, more understated */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 6rem;
+      padding-top: 7rem;
+      padding-bottom: 5rem;
       position: relative;
     }
-
     .hero::after {
       content: '';
       position: absolute;
@@ -118,54 +105,46 @@
       right: -20%;
       width: 700px;
       height: 700px;
-      background: radial-gradient(circle, rgba(45, 212, 191, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.05) 0%, transparent 70%);
       pointer-events: none;
     }
+    .hero-content { position: relative; z-index: 1; }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-label {
+    .hero-eyebrow {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--teal);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.2s;
     }
-
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
       font-weight: 700;
       color: var(--white);
       line-height: 1.1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.4s;
     }
+    .hero h1 .accent { color: var(--teal); font-style: italic; }
 
-    .hero h1 .accent {
-      color: var(--teal);
-      font-style: italic;
-    }
-
-    .hero-description {
-      font-size: 1.15rem;
+    .hero-bio {
+      font-size: 1.05rem;
       color: var(--text-dim);
-      max-width: 580px;
-      margin-bottom: 2.5rem;
+      width: 100%;
+      margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.6s;
+      line-height: 1.75;
     }
 
     .hero-links {
       display: flex;
-      gap: 1rem;
+      gap: 0.875rem;
       flex-wrap: wrap;
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.8s;
@@ -175,250 +154,222 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.75rem;
+      padding: 0.65rem 1.5rem;
       border-radius: 6px;
       font-family: var(--font-body);
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 500;
       transition: all 0.25s;
-      cursor: pointer;
       border: none;
+      cursor: pointer;
     }
+    .btn-primary { background: var(--teal); color: var(--bg); }
+    .btn-primary:hover { background: var(--white); color: var(--bg); box-shadow: 0 0 30px rgba(45,212,191,0.2); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
 
-    .btn-primary {
-      background: var(--teal);
-      color: var(--bg);
-    }
-
-    .btn-primary:hover {
-      background: var(--white);
-      color: var(--bg);
-      box-shadow: 0 0 30px rgba(45, 212, 191, 0.2);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--teal);
-      color: var(--teal);
-    }
-
-    /* Sections */
-    section {
-      padding: 6rem 0;
-    }
+    /* Section */
+    section { padding: 2.5rem 0; }
 
     .section-label {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--teal);
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
-
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
       font-weight: 600;
       color: var(--white);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
-
     .section-desc {
       color: var(--text-dim);
-      max-width: 600px;
+      width: 100%;
       margin-bottom: 3rem;
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
-    /* Divider Line */
     .divider {
       border: none;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), rgba(45,212,191,0.15), var(--border), transparent);
+      background: linear-gradient(90deg, transparent, var(--border), rgba(45,212,191,0.12), var(--border), transparent);
     }
 
-    /*  About / Two-Column */
+    /* ── PROJECTS — academic table ── */
+    .project-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .project-table thead tr {
+      border-bottom: 1px solid rgba(45, 212, 191, 0.25);
+    }
+    .project-table thead th {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--teal);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0 1rem 0.75rem 0;
+      text-align: left;
+      font-weight: 400;
+    }
+    .project-table thead th:last-child { padding-right: 0; }
+
+    .project-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .project-table tbody tr:hover { background: rgba(45, 212, 191, 0.03); }
+    .project-table tbody tr:last-child { border-bottom: none; }
+
+    .project-table td {
+      padding: 1.1rem 1rem 1.1rem 0;
+      vertical-align: middle;
+    }
+    .project-table td:last-child { padding-right: 0; }
+
+    .pt-type {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+    .pt-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+    .pt-title a {
+      color: var(--white);
+      transition: color 0.2s;
+    }
+    .pt-title a:hover { color: var(--teal); }
+
+    .pt-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .pt-tags span {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      background: var(--teal-subtle);
+      color: var(--teal-dim);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .pt-arrow {
+      color: var(--text-faint);
+      font-size: 0.9rem;
+      text-align: right;
+      width: 2rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .project-table tbody tr:hover .pt-arrow {
+      color: var(--teal);
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 640px) {
+      .pt-tags { display: none; }
+      .pt-year { width: 2.5rem; font-size: 0.7rem; }
+    }
+
+    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: start;
     }
-
     .about-text p {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
       color: var(--text-dim);
     }
+    .about-text p strong { color: var(--text); }
 
-    .about-text p strong {
-      color: var(--text);
-    }
-
-    .about-details {
+    /* Inline skills inside about */
+    .skills-inline {
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
     }
-
-    .detail-card {
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-card);
-      transition: border-color 0.3s, background 0.3s;
-    }
-
-    .detail-card:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-card-hover);
-    }
-
-    .detail-card .label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--teal);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .detail-card .value {
-      font-size: 1rem;
-      color: var(--white);
-      font-weight: 500;
-    }
-
-    .detail-card .sub {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-top: 0.25rem;
-    }
-
-    /*  Skills  */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 0.75rem;
-    }
-
     .skill-tag {
-      padding: 0.7rem 1rem;
+      padding: 0.35rem 0.8rem;
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.85rem;
+      border-radius: 5px;
+      font-size: 0.78rem;
       color: var(--text-dim);
       background: var(--bg-card);
-      text-align: center;
-      transition: all 0.25s;
+      transition: all 0.2s;
+      font-family: var(--font-mono);
     }
-
     .skill-tag:hover {
       border-color: var(--border-hover);
       color: var(--teal);
       background: var(--teal-subtle);
     }
 
-    /*  Projects  */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 2rem;
-      background: var(--bg-card);
-      transition: all 0.3s;
+    .about-details {
       display: flex;
       flex-direction: column;
-      position: relative;
-      overflow: hidden;
+      gap: 1.25rem;
     }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--teal), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
+    .detail-card {
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-card);
+      transition: border-color 0.3s, background 0.3s;
     }
-
-    .project-card:hover {
+    .detail-card:hover {
       border-color: var(--border-hover);
       background: var(--bg-card-hover);
-      transform: translateY(-2px);
     }
-
-    .project-card:hover::before { opacity: 1; }
-
-    .project-card .project-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-
-    .project-card p {
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      flex: 1;
-      margin-bottom: 1.25rem;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .project-tags span {
+    .detail-card .label {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      padding: 0.3rem 0.65rem;
-      border-radius: 4px;
-      background: var(--teal-subtle);
-      color: var(--teal-dim);
-      letter-spacing: 0.03em;
+      font-size: 0.68rem;
+      color: var(--teal);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .detail-card .value {
+      font-size: 0.95rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+    .detail-card .sub {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-top: 0.2rem;
     }
 
-    /* Experience Timeline  */
+    /* ── EXPERIENCE ── */
     .timeline {
       position: relative;
       padding-left: 2rem;
     }
-
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
+      left: 0; top: 0; bottom: 0;
       width: 1px;
       background: linear-gradient(180deg, var(--teal), var(--border), transparent);
     }
-
     .timeline-item {
       position: relative;
-      padding-bottom: 3rem;
+      padding-bottom: 2.75rem;
     }
-
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -430,101 +381,80 @@
       background: var(--teal);
       box-shadow: 0 0 10px var(--teal-glow);
     }
-
     .timeline-item .t-period {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--teal);
       letter-spacing: 0.08em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
-
     .timeline-item h3 {
       font-family: var(--font-display);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: var(--white);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
-
     .timeline-item .t-org {
       color: var(--text-dim);
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
     }
-
     .timeline-item p {
       color: var(--text-dim);
-      font-size: 0.9rem;
-      max-width: 560px;
+      font-size: 0.875rem;
+      max-width: 540px;
     }
 
-    /* Contact  */
+    /* Contact */
     .contact-bar {
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
       align-items: center;
     }
-
     .contact-bar a {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       color: var(--text-dim);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: color 0.2s;
     }
-
     .contact-bar a:hover { color: var(--teal); }
-
     .contact-bar .sep {
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       border-radius: 50%;
       background: var(--text-faint);
     }
 
-    /* Footer  */
     footer {
       padding: 3rem 0;
       border-top: 1px solid var(--border);
       text-align: center;
     }
+    footer p { font-size: 0.78rem; color: var(--text-faint); }
 
-    footer p {
-      font-size: 0.8rem;
-      color: var(--text-faint);
-    }
-
-    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .fade-in {
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /*  Responsive  */
     @media (max-width: 768px) {
       nav .nav-links { gap: 1.25rem; }
       nav .nav-links a { font-size: 0.75rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .projects-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 8rem; min-height: auto; padding-bottom: 4rem; }
+      .hero { padding-top: 7rem; }
       section { padding: 4rem 0; }
       .contact-bar { flex-direction: column; align-items: flex-start; }
       .contact-bar .sep { display: none; }
     }
-
     @media (max-width: 480px) {
       .container { padding: 0 1.25rem; }
       nav { padding: 1rem 1.25rem; }
@@ -535,41 +465,34 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <div class="nav-inner">
       <div class="logo">BHB</div>
       <div class="nav-links">
-        <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero — leaner, researcher-identity framing -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-label">Applied Mathematics &amp; Data Science</div>
-        <h1>Brookes Heil<br><span class="accent">Blackburn</span></h1>
-        <p class="hero-description">
-          M.S. Applied Mathematics candidate blending 12 years as a Technical Program Manager in semiconductor engineering with quantitative research, numerical methods, and data science.
+        <div class="hero-eyebrow">M.S. Applied Mathematics · Cal Poly Pomona</div>
+        <h1>Brookes<br><span class="accent">Blackburn</span></h1>
+        <p class="hero-bio">
+          Quantitative researcher working at the intersection of applied mathematics, computational modeling, and policy systems. Bringing 12 years of engineering leadership into rigorous academic work.
         </p>
         <div class="hero-links">
-          <a href="https://github.com/brookesblackburn" class="btn btn-primary" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="https://github.com/brookesblackburn" class="btn btn-outline" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             GitHub
           </a>
-          <a href="https://linkedin.com/in/brookesheilblackburn" class="btn btn-outline" target="_blank">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.23 0z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://www.nvidia.com/gtc/" class="btn btn-outline" target="_blank">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Attending NVIDIA GTC 2026
-          </a>
+          <a href="https://linkedin.com/in/brookesheilblackburn" class="btn btn-outline" target="_blank">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -577,7 +500,61 @@
 
   <div class="container"><hr class="divider"></div>
 
-  <!-- About -->
+  <!-- PROJECTS — now first, title-led -->
+  <section id="projects">
+    <div class="container fade-in">
+      <div class="section-label">Work</div>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-desc">Academic and independent research in applied mathematics, computational modeling, and data science.</p>
+
+      <table class="project-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Topics</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="window.open('https://github.com/brookesblackburn/ca_fair_plan_analysis','_blank')">
+            <td class="pt-title"><a href="https://github.com/brookesblackburn/ca_fair_plan_analysis" target="_blank">California FAIR Plan Analysis</a></td>
+            <td class="pt-type">Independent Research</td>
+            <td class="pt-tags"><span>Geospatial</span><span>Python</span><span>SQL</span><span>Plotly</span></td>
+            <td class="pt-arrow">↗</td>
+          </tr>
+          <tr onclick="window.open('https://github.com/brookesblackburn/wildfire-pde-modeling','_blank')">
+            <td class="pt-title"><a href="https://github.com/brookesblackburn/wildfire-pde-modeling" target="_blank">Exploring Fire Modeling</a></td>
+            <td class="pt-type">Course Project</td>
+            <td class="pt-tags"><span>PDEs</span><span>MATLAB</span><span>Numerical Methods</span></td>
+            <td class="pt-arrow">↗</td>
+          </tr>
+          <tr onclick="window.open('https://github.com/brookesblackburn/game-theory-modeling','_blank')">
+            <td class="pt-title"><a href="https://github.com/brookesblackburn/game-theory-modeling" target="_blank">Exploration of Modeling in Game Theory</a></td>
+            <td class="pt-type">Course Project</td>
+            <td class="pt-tags"><span>Game Theory</span><span>Replicator Dynamics</span><span>Python</span><span>LaTeX</span></td>
+            <td class="pt-arrow">↗</td>
+          </tr>
+          <tr onclick="window.open('https://github.com/brookesblackburn/euler-gamma-constant','_blank')">
+            <td class="pt-title"><a href="https://github.com/brookesblackburn/euler-gamma-constant" target="_blank">Euler-Mascheroni Constant</a></td>
+            <td class="pt-type">Course Project</td>
+            <td class="pt-tags"><span>Real Analysis</span><span>Series Methods</span><span>LaTeX</span></td>
+            <td class="pt-arrow">↗</td>
+          </tr>
+          <tr onclick="window.open('https://github.com/brookesblackburn/us-china-social-agenda-thesis','_blank')">
+            <td class="pt-title"><a href="https://github.com/brookesblackburn/us-china-social-agenda-thesis" target="_blank">US-China Social Agenda</a></td>
+            <td class="pt-type">M.A. Thesis</td>
+            <td class="pt-tags"><span>Policy Analysis</span><span>International Relations</span></td>
+            <td class="pt-arrow">↗</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="container"><hr class="divider"></div>
+
+  <!-- ABOUT — now second -->
   <section id="about">
     <div class="container">
       <div class="about-grid fade-in">
@@ -585,14 +562,25 @@
           <div class="section-label">About</div>
           <h2 class="section-title">Where Math Meets<br>Real-World Systems</h2>
           <p>
-            I'm a graduate student in <strong>Applied Mathematics and Statistics</strong> at Cal Poly Pomona, building on a career spanning semiconductor manufacturing, international development, and data science.
+            Graduate student in <strong>Applied Mathematics and Statistics</strong> at Cal Poly Pomona, building on a career spanning semiconductor manufacturing, international policy, and data science.
           </p>
           <p>
-            Spent 12 years at Intel as a Technical Program Manager across CPU and chipset product development from tapeout to launch, and graphics architecture supporting pre-silicon feature planning and delivery.
+            12 years at Intel as a Technical Program Manager in CPU and chipset product development from tapeout to launch, and graphics architecture supporting pre-silicon feature planning. Now bringing that engineering intuition to rigorous computational research.
           </p>
           <p>
-            Now I'm bringing that practical perspective to rigorous quantitative research: numerical methods, PDE modeling, statistical analysis, and computational science.
+            Research interests sit at the intersection of dynamical systems, policy modeling, and complexity science.
           </p>
+          <div class="skills-inline">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Numerical Methods</span>
+            <span class="skill-tag">PDE Modeling</span>
+            <span class="skill-tag">Statistical Modeling</span>
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">Systems Analysis</span>
+          </div>
         </div>
         <div class="about-details">
           <div class="detail-card">
@@ -601,7 +589,7 @@
             <div class="sub">Cal Poly Pomona</div>
           </div>
           <div class="detail-card">
-            <div class="label">Graduate Degree</div>
+            <div class="label">Graduate</div>
             <div class="value">M.A. International Relations</div>
             <div class="sub">University of Leeds, UK</div>
           </div>
@@ -622,126 +610,36 @@
 
   <div class="container"><hr class="divider"></div>
 
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container fade-in">
-      <div class="section-label">Toolkit</div>
-      <h2 class="section-title">Skills &amp; Technologies</h2>
-      <p class="section-desc">Technical capabilities spanning programming, mathematical modeling, and systems analysis.</p>
-      <div class="skills-grid">
-        <div class="skill-tag">Python</div>
-        <div class="skill-tag">MATLAB</div>
-        <div class="skill-tag">R</div>
-        <div class="skill-tag">SQL</div>
-        <div class="skill-tag">Numerical Methods</div>
-        <div class="skill-tag">PDE Modeling</div>
-        <div class="skill-tag">Statistical Modeling</div>
-        <div class="skill-tag">Data Visualization</div>
-        <div class="skill-tag">Excel &amp; Power Pivot</div>
-        <div class="skill-tag">Systems Analysis</div>
-        <div class="skill-tag">Policy Analysis</div>
-        <div class="skill-tag">LaTeX</div>
-        <div class="skill-tag">Cross-Functional Leadership</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container"><hr class="divider"></div>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container fade-in">
-      <div class="section-label">Selected Work</div>
-      <h2 class="section-title">Projects</h2>
-      <p class="section-desc">Academic and independent projects in applied mathematics, computational science, and data analysis.</p>
-      <div class="projects-grid">
-        
-        <a href="https://github.com/brookesblackburn/ca_fair_plan_analysis" target="_blank" class="project-card">
-          <div class="project-icon">🏠</div>
-          <h3>California FAIR Plan Analysis</h3>
-          <p>An independent research project examining FAIR Plan exposure across the Eaton, Palisades, and Mosquito fires using CalFire damage data, interactive geospatial mapping, and insurance market analysis. Built with Python, Pandas, Folium, SQL, and Plotly.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>Plotly</span>
-            <span>Folium</span>
-            <span>SQL</span>
-            <span>Geospatial Analysis</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/brookesblackburn/wildfire-pde-modeling" target="_blank" class="project-card">
-          <div class="project-icon">🔥</div>
-          <h3>Exploring Fire Modeling</h3>
-          <p>PDE-based fire spread modeling using numerical methods to simulate heat diffusion and combustion dynamics.</p>
-          <div class="project-tags">
-            <span>PDEs</span>
-            <span>MATLAB</span>
-            <span>Simulation</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/brookesblackburn/euler-gamma-constant" target="_blank" class="project-card">
-          <div class="project-icon">𝛾</div>
-          <h3>Euler-Mascheroni Constant</h3>
-          <p>Numerical investigation of the Euler-Mascheroni constant using series acceleration techniques and convergence analysis.</p>
-          <div class="project-tags">
-            <span>Numerical Analysis</span>
-            <span>Python</span>
-            <span>Series Methods</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/brookesblackburn/us-china-social-agenda-thesis" target="_blank" class="project-card">
-          <div class="project-icon">📝</div>
-          <h3>Master's Thesis</h3>
-          <p>Research on "The New Social Agenda in the Context of United States–Chinese Relations" — exploring policy dynamics in US-China diplomacy.</p>
-          <div class="project-tags">
-            <span>Policy Analysis</span>
-            <span>International Relations</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="container"><hr class="divider"></div>
-
-  <!-- Experience -->
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container fade-in">
       <div class="section-label">Career</div>
       <h2 class="section-title">Experience</h2>
-      <p class="section-desc">A path from global policy studies to semiconductor manufacturing to computational mathematics.</p>
-
+      <p class="section-desc">A path from global policy studies to semiconductor engineering to computational mathematics.</p>
       <div class="timeline">
         <div class="timeline-item">
           <div class="t-period">2025 – Present</div>
           <h3>M.S. Applied Mathematics</h3>
           <div class="t-org">Cal Poly Pomona</div>
-          <p>Coursework in numerical analysis, PDE modeling, and statistical methods. Conducting computational research and building quantitative expertise for careers in policy research and emerging technology analysis.</p>
+          <p>Coursework in numerical analysis, PDE modeling, game theory, and statistical methods. Building computational expertise in dynamical systems and policy-adjacent modeling.</p>
         </div>
-
         <div class="timeline-item">
           <div class="t-period">2024</div>
           <h3>Data Science Certificate</h3>
           <div class="t-org">University of California, Irvine</div>
-          <p>Completed projects in Python-based data analysis including stock data modeling, statistical analysis of the Titanic and Iris datasets, and data visualization techniques.</p>
+          <p>Python-based data analysis, statistical modeling, and data visualization. Projects in stock data, Titanic and Iris datasets.</p>
         </div>
-
         <div class="timeline-item">
           <div class="t-period">2005 – 2017</div>
           <h3>Technical Program Manager</h3>
-          <div class="t-org">Intel Corporation &mdash; Folsom, CA</div>
-          <p>Led cross-functional semiconductor engineering programs for 12 years. Produced quarterly Line Item Risk Analysis reports, facilitated executive-level trade-off decisions, and performed pre-silicon annealing modeling using Excel and Power Pivot.</p>
+          <div class="t-org">Intel Corporation, Folsom, CA</div>
+          <p>Led cross-functional semiconductor engineering programs for 12 years. Quarterly Line Item Risk Analysis, executive-level trade-off decisions, and pre-silicon annealing modeling.</p>
         </div>
-
         <div class="timeline-item">
           <div class="t-period">Graduate Studies</div>
           <h3>M.A. International Relations</h3>
           <div class="t-org">University of Leeds, UK</div>
-          <p>Thesis research on US-China policy dynamics, developing the analytical frameworks and interdisciplinary perspective that inform current work on technology policy and national security.</p>
+          <p>Thesis research on US-China policy dynamics and interdisciplinary analytical frameworks.</p>
         </div>
       </div>
     </div>
@@ -749,48 +647,43 @@
 
   <div class="container"><hr class="divider"></div>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container fade-in">
       <div class="section-label">Get in Touch</div>
       <h2 class="section-title">Let's Connect</h2>
-      <p class="section-desc">Open to research collaborations, internship opportunities, and conversations about applied math, data science, and technology policy.</p>
+      <p class="section-desc">Open to research collaborations, internship opportunities, and conversations about applied math, data science, and policy systems.</p>
       <div class="contact-bar">
-        <a href="mailto:brookesheilblackburn@gmail.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          brookesheilblackburn@gmail.com
+        <a href="mailto:brookes.a.blackburn@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          brookes.a.blackburn@gmail.com
         </a>
         <span class="sep"></span>
         <a href="https://github.com/brookesblackburn" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
           github.com/brookesblackburn
         </a>
         <span class="sep"></span>
         <a href="https://linkedin.com/in/brookesheilblackburn" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.23 0z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.23 0z"/></svg>
           LinkedIn
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Brookes Heil Blackburn</p>
+      <p>&copy; 2026 Brookes Blackburn</p>
     </div>
   </footer>
 
-  <!-- Scroll Animation -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
